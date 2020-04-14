@@ -16,7 +16,7 @@ def selection_sort( arr ):
         print(i, "-- index, value --", arr[i])
 
         #"This is finding the smallest value in the array")
-        for x in range(i+1, len(arr)):  #i+1 since i is going to be the sorted part of the array
+        for x in range(cur_index, len(arr)):  # i is going to be the sorted part of the array
             print(arr[x], "-- x, smallest_index --", arr[smallest_index])
             if arr[x] < arr[smallest_index]:
                 smallest_index = x
@@ -32,15 +32,19 @@ def selection_sort( arr ):
 # selection_sort(arr1)
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
+    swap = True
     bubble = arr
     print("bubble", arr)
-    for x in range(len(bubble)):
-        print(x, "--X")
-        print(bubble)
-        for y in range(0,len(bubble)-x-1):
-            print("y--", y, "value --", arr[y])
-            if arr[y] > arr[y+1]:
-                arr[y], arr[y+1] = arr[y+1], arr[y]
+    while swap == True:
+        swap = False
+        for x in range(len(bubble)):
+            print(x, "--X")
+            print(bubble)
+            for y in range(len(bubble)-1):
+                print("y--", y, "value --", arr[y])
+                if arr[y] > arr[y+1]:
+                    arr[y], arr[y+1] = arr[y+1], arr[y]
+                    swap = True
 
     print(bubble)
     return arr
